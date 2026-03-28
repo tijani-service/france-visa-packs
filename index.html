@@ -112,7 +112,7 @@
     window.scrollTo(0, document.body.scrollHeight);
   }
 
- function submitForm() {
+function submitForm() {
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const phone = document.getElementById("phone").value;
@@ -129,22 +129,25 @@
     pack: chosenPack
   };
 
+  // 🔹 Ouvrir WhatsApp immédiatement
+  const whatsappMessage = `Bonjour, je souhaite le pack ${chosenPack}. Nom: ${name}, Email: ${email}, Téléphone: ${phone}`;
+  window.open(`https://api.whatsapp.com/send?phone=212661436739&text=${encodeURIComponent(whatsappMessage)}`);
+
+  // 🔹 Envoyer les données au Google Sheet en arrière-plan
   fetch("https://script.google.com/macros/s/AKfycbwBrJJO-1naUoFUH4_fLEi3Bga1ZvHoBhDjMMc7K0Wx-ZFRcy_6ajT7YlvHe8kphIY/exec", {
     method: "POST",
     body: JSON.stringify(data)
   })
   .then(res => res.json())
   .then(response => {
-    alert("Demande envoyée avec succès !");
-    
-    const message = `Bonjour, je souhaite le pack ${chosenPack}. Nom: ${name}, Email: ${email}, Téléphone: ${phone}`;
-    
-    window.open(`https://api.whatsapp.com/send?phone=212661436739&text=${encodeURIComponent(message)}`);
+    console.log("Données envoyées au Google Sheet :", response);
   })
   .catch(error => {
-    alert("Erreur lors de l'envoi");
-    console.error(error);
+    console.error("Erreur lors de l'envoi au Google Sheet :", error);
   });
+
+  // Optionnel : tu peux aussi afficher une petite alerte de confirmation côté page
+  alert("Votre demande est enregistrée et WhatsApp s'ouvre !");
 }
 </script>
 
