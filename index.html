@@ -2,170 +2,93 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Visa France - Assistance</title>
+  <title>Visa France Assistance</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: white;
-      text-align: center;
-    }
-
-    header {
-      padding: 60px 20px;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      opacity: 0.8;
-    }
-
-    .container {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      padding: 40px 20px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 20px;
-      padding: 30px;
-      width: 300px;
-      backdrop-filter: blur(10px);
-      transition: 0.3s;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-      border-color: #38bdf8;
-    }
-
-    .card h2 {
-      margin-bottom: 10px;
-    }
-
-    .price {
-      font-size: 2rem;
-      margin: 20px 0;
-      color: #38bdf8;
-    }
-
-    .features {
-      list-style: none;
-      margin-bottom: 20px;
-    }
-
-    .features li {
-      margin: 10px 0;
-      opacity: 0.9;
-    }
-
-    button {
-      background: #38bdf8;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: #0ea5e9;
-    }
-
-    /* Formulaire */
-    .form-section {
-      display: none;
-      margin-top: 40px;
-      padding: 30px;
-    }
-
-    input {
-      padding: 12px;
-      margin: 10px;
-      width: 250px;
-      border-radius: 8px;
-      border: none;
-    }
-
-    footer {
-      margin-top: 50px;
-      padding: 20px;
-      opacity: 0.6;
-    }
+    * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+    body {background: linear-gradient(135deg,#0f172a,#1e293b);color:white;text-align:center;}
+    header {padding:60px 20px;}
+    header h1 {font-size:2.5rem;margin-bottom:10px;}
+    header p {opacity:0.8;}
+    .container {display:flex;justify-content:center;gap:20px;flex-wrap:wrap;padding:40px 20px;}
+    .card {background:rgba(255,255,255,0.05);border-radius:20px;padding:30px;width:320px;backdrop-filter:blur(10px);transition:0.3s;border:1px solid rgba(255,255,255,0.1);}
+    .card:hover {transform:translateY(-10px);border-color:#38bdf8;}
+    .card h2 {margin-bottom:10px;}
+    .price {font-size:2rem;margin:15px 0;color:#38bdf8;}
+    .desc {font-size:0.9rem;opacity:0.8;margin-bottom:15px;}
+    .features {list-style:none;text-align:left;margin-bottom:20px;font-size:0.9rem;}
+    .features li {margin:8px 0;}
+    button {background:#38bdf8;border:none;padding:12px 20px;border-radius:10px;cursor:pointer;font-weight:bold;transition:0.3s;}
+    button:hover {background:#0ea5e9;}
+    .form-section {display:none;margin-top:40px;padding:30px;}
+    input {padding:12px;margin:10px;width:250px;border-radius:8px;border:none;}
+    footer {margin-top:50px;padding:20px;opacity:0.6;}
   </style>
 </head>
-
 <body>
 
 <header>
   <h1>Préparez votre visa pour la France 🇫🇷</h1>
-  <p>Choisissez votre pack et simplifiez vos démarches</p>
+  <p>Choisissez votre pack et maximisez vos chances d'obtention</p>
 </header>
 
 <div class="container">
 
   <!-- PACK 1 -->
   <div class="card">
-    <h2>Pack Basic</h2>
-    <div class="price">49€</div>
+    <h2>Test & Conseils</h2>
+    <div class="price">99 MAD</div>
+    <p class="desc">Idéal pour évaluer votre niveau et corriger vos erreurs</p>
     <ul class="features">
-      <li>✔ Vérification des documents</li>
-      <li>✔ Conseils personnalisés</li>
-      <li>✔ Liste complète</li>
+      <li>✔ Questionnaire complet adaptatif</li>
+      <li>✔ Score sur 100 avec niveau</li>
+      <li>✔ Analyse personnalisée</li>
+      <li>✔ Identification des documents manquants</li>
+      <li>✔ Conseils ciblés selon profil</li>
+      <li>✔ Rapport téléchargeable</li>
     </ul>
-    <button onclick="selectPack('Basic')">Choisir</button>
+    <button onclick="selectPack('Test & Conseils')">Choisir</button>
   </div>
 
   <!-- PACK 2 -->
   <div class="card">
-    <h2>Pack Standard</h2>
-    <div class="price">99€</div>
+    <h2>Accompagnement</h2>
+    <div class="price">À partir de 399 MAD</div>
+    <p class="desc">Préparez un dossier solide avec un expert</p>
     <ul class="features">
-      <li>✔ Tout du Basic</li>
-      <li>✔ Assistance complète</li>
-      <li>✔ Simulation entretien</li>
+      <li>✔ Tout le Pack 1</li>
+      <li>✔ Aide formulaire France-Visas</li>
+      <li>✔ Vérification des justificatifs</li>
+      <li>✔ Cohérence globale du dossier</li>
+      <li>✔ Lettre de motivation personnalisée</li>
+      <li>✔ Aide prise RDV TLScontact</li>
+      <li>✔ Alerte documents à traduire</li>
     </ul>
-    <button onclick="selectPack('Standard')">Choisir</button>
+    <button onclick="selectPack('Accompagnement')">Choisir</button>
   </div>
 
   <!-- PACK 3 -->
   <div class="card">
-    <h2>Pack Premium</h2>
-    <div class="price">149€</div>
+    <h2>Suivi Premium</h2>
+    <div class="price">À partir de 699 MAD</div>
+    <p class="desc">Accompagnement complet jusqu'au dépôt</p>
     <ul class="features">
-      <li>✔ Tout du Standard</li>
-      <li>✔ Dossier complet préparé</li>
-      <li>✔ Support prioritaire</li>
+      <li>✔ Tout le Pack 2</li>
+      <li>✔ Suivi actif du dossier</li>
+      <li>✔ Alerte créneaux TLScontact</li>
+      <li>✔ Relecture complète finale</li>
+      <li>✔ Checklist + briefing RDV</li>
+      <li>✔ Support WhatsApp 7j/7</li>
     </ul>
-    <button onclick="selectPack('Premium')">Choisir</button>
+    <button onclick="selectPack('Suivi Premium')">Choisir</button>
   </div>
 
 </div>
 
-<!-- FORMULAIRE -->
 <div class="form-section" id="formSection">
   <h2>Finalisez votre demande</h2>
-
   <p id="selectedPack"></p>
 
   <input type="text" id="name" placeholder="Votre nom"><br>
@@ -176,7 +99,7 @@
 </div>
 
 <footer>
-  © 2026 - Assistance Visa France
+  © 2026 - Visa France Assistance
 </footer>
 
 <script>
@@ -199,15 +122,10 @@
       return;
     }
 
-    const message = `Bonjour, je veux le pack ${chosenPack}.\nNom: ${name}\nEmail: ${email}\nTéléphone: ${phone}`;
+    const message = `Bonjour, je souhaite le pack ${chosenPack}. Nom: ${name}, Email: ${email}, Téléphone: ${phone}`;
 
-    // 👉 OPTION 1 : WhatsApp
     window.open(`https://wa.me/XXXXXXXXXX?text=${encodeURIComponent(message)}`);
-
-    // 👉 OPTION 2 (alternative): email
-    // window.location.href = `mailto:tonemail@gmail.com?subject=Demande pack ${chosenPack}&body=${encodeURIComponent(message)}`;
   }
 </script>
 
-</body>
-</html>
+</
