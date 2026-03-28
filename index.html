@@ -1,154 +1,175 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Tijani Visa France Assistance</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Visa France Assistance</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <style>
-    * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-    body {background: linear-gradient(135deg,#0f172a,#1e293b);color:white;text-align:center;}
-    header {padding:60px 20px;}
-    header h1 {font-size:2.5rem;margin-bottom:10px;}
-    header p {opacity:0.8;}
-    .container {display:flex;justify-content:center;gap:20px;flex-wrap:wrap;padding:40px 20px;}
-    .card {background:rgba(255,255,255,0.05);border-radius:20px;padding:30px;width:320px;backdrop-filter:blur(10px);transition:0.3s;border:1px solid rgba(255,255,255,0.1);}
-    .card:hover {transform:translateY(-10px);border-color:#38bdf8;}
-    .card h2 {margin-bottom:10px;}
-    .price {font-size:2rem;margin:15px 0;color:#38bdf8;}
-    .desc {font-size:0.9rem;opacity:0.8;margin-bottom:15px;}
-    .features {list-style:none;text-align:left;margin-bottom:20px;font-size:0.9rem;}
-    .features li {margin:8px 0;}
-    button {background:#38bdf8;border:none;padding:12px 20px;border-radius:10px;cursor:pointer;font-weight:bold;transition:0.3s;}
-    button:hover {background:#0ea5e9;}
-    .form-section {display:none;margin-top:40px;padding:30px;}
-    input {padding:12px;margin:10px;width:250px;border-radius:8px;border:none;}
-    footer {margin-top:50px;padding:20px;opacity:0.6;}
-  </style>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:linear-gradient(135deg,#0f172a,#1e293b);color:white;text-align:center;}
+header{padding:60px 20px;}
+h1{font-size:2.5rem;margin-bottom:10px;}
+p{opacity:0.8;}
+.container{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;padding:40px;}
+.card{background:rgba(255,255,255,0.05);border-radius:20px;padding:30px;width:320px;border:1px solid rgba(255,255,255,0.1);transition:0.3s;}
+.card:hover{transform:translateY(-10px);border-color:#38bdf8;}
+.price{font-size:2rem;color:#38bdf8;margin:10px 0;}
+.features{font-size:0.9rem;margin-bottom:20px;text-align:left;}
+.features li{margin:8px 0;}
+button{background:#38bdf8;border:none;padding:10px 15px;border-radius:10px;cursor:pointer;margin-top:10px;}
+.form-page{display:none;padding:40px;}
+.form-container{display:flex;flex-direction:column;align-items:center;gap:15px;margin-top:20px;}
+input{padding:12px;width:260px;border-radius:8px;border:none;}
+.lang{margin-top:20px;}
+</style>
 </head>
-<body>
 
-<header>
-  <h1>Préparez votre visa pour la France </h1>
-  <p>Choisissez votre pack et maximisez vos chances d'obtention</p>
+<body>
+<header id="home">
+<h1 id="title">Préparez votre visa pour la France 🇫🇷</h1>
+<p id="subtitle">Choisissez votre pack et maximisez vos chances</p>
+
+<div class="lang">
+<button onclick="setLanguage('fr')">FR</button>
+<button onclick="setLanguage('ar')">AR</button>
+</div>
 </header>
 
-<div class="container">
+<div class="container" id="packs">
 
-  <!-- PACK 1 -->
-  <div class="card">
-    <h2>Test & Conseils</h2>
-    <div class="price">99 MAD</div>
-    <p class="desc">Idéal pour évaluer votre niveau et corriger vos erreurs</p>
-    <ul class="features">
-      <li>✔ Questionnaire complet adaptatif</li>
-      <li>✔ Score sur 100 avec niveau</li>
-      <li>✔ Analyse personnalisée</li>
-      <li>✔ Identification des documents manquants</li>
-      <li>✔ Conseils ciblés selon profil</li>
-      <li>✔ Rapport téléchargeable</li>
-    </ul>
-    <button onclick="selectPack('Test & Conseils')">Choisir</button>
-  </div>
+<div class="card">
+<h2 id="pack1_title">Test & Conseils</h2>
+<div class="price">99 MAD</div>
+<ul class="features" id="pack1_features"></ul>
+<button onclick="selectPack('Test & Conseils')" id="btn1">Choisir</button>
+</div>
 
-  <!-- PACK 2 -->
-  <div class="card">
-    <h2>Accompagnement</h2>
-    <div class="price">À partir de 399 MAD</div>
-    <p class="desc">Préparez un dossier solide avec un expert</p>
-    <ul class="features">
-      <li>✔ Tout le Pack 1</li>
-      <li>✔ Aide formulaire France-Visas</li>
-      <li>✔ Vérification des justificatifs</li>
-      <li>✔ Cohérence globale du dossier</li>
-      <li>✔ Lettre de motivation personnalisée</li>
-      <li>✔ Aide prise RDV TLScontact</li>
-      <li>✔ Alerte documents à traduire</li>
-    </ul>
-    <button onclick="selectPack('Accompagnement')">Choisir</button>
-  </div>
+<div class="card">
+<h2 id="pack2_title">Accompagnement</h2>
+<div class="price">399 MAD+</div>
+<ul class="features" id="pack2_features"></ul>
+<button onclick="selectPack('Accompagnement')" id="btn2">Choisir</button>
+</div>
 
-  <!-- PACK 3 -->
-  <div class="card">
-    <h2>Suivi Premium</h2>
-    <div class="price">À partir de 699 MAD</div>
-    <p class="desc">Accompagnement complet jusqu'au dépôt</p>
-    <ul class="features">
-      <li>✔ Tout le Pack 2</li>
-      <li>✔ Suivi actif du dossier</li>
-      <li>✔ Alerte créneaux TLScontact</li>
-      <li>✔ Relecture complète finale</li>
-      <li>✔ Checklist + briefing RDV</li>
-      <li>✔ Support WhatsApp 7j/7</li>
-    </ul>
-    <button onclick="selectPack('Suivi Premium')">Choisir</button>
-  </div>
+<div class="card">
+<h2 id="pack3_title">Suivi Premium</h2>
+<div class="price">699 MAD+</div>
+<ul class="features" id="pack3_features"></ul>
+<button onclick="selectPack('Suivi Premium')" id="btn3">Choisir</button>
+</div>
 
 </div>
 
-<div class="form-section" id="formSection">
-  <h2>Finalisez votre demande</h2>
-  <p id="selectedPack"></p>
+<div class="form-page" id="formPage">
+<h2 id="formTitle">Finalisez votre demande</h2>
+<p id="selectedPack"></p>
 
-  <input type="text" id="name" placeholder="Votre nom"><br>
-  <input type="email" id="email" placeholder="Votre email"><br>
-  <input type="tel" id="phone" placeholder="Téléphone"><br>
-
-  <button onclick="submitForm()">Valider</button>
+<div class="form-container">
+<input id="name" placeholder="Nom et prénom">
+<input id="email" placeholder="Email">
+<input id="phone" placeholder="Téléphone">
+<button onclick="submitForm()" id="validate">Valider</button>
 </div>
-
-<footer>
-  © 2026 - Visa France Assistance
-</footer>
+</div>
 
 <script>
-  let chosenPack = "";
+let chosenPack="";
+let currentLang="fr";
 
-  function selectPack(pack) {
-    chosenPack = pack;
-    document.getElementById("formSection").style.display = "block";
-    document.getElementById("selectedPack").innerText = "Pack choisi : " + pack;
-    window.scrollTo(0, document.body.scrollHeight);
-  }
+const translations={
+fr:{
+ title:"Préparez votre visa pour la France 🇫🇷",
+ subtitle:"Choisissez votre pack et maximisez vos chances",
+ formTitle:"Finalisez votre demande",
+ validate:"Valider",
+ name:"Nom et prénom",
+ email:"Email",
+ phone:"Téléphone",
+ pack1Title:"Test & Conseils",
+ pack2Title:"Accompagnement",
+ pack3Title:"Suivi Premium",
+ pack1:["✔ Questionnaire complet adaptatif","✔ Score sur 100 avec niveau","✔ Analyse personnalisée","✔ Identification des documents manquants","✔ Conseils ciblés selon profil","✔ Rapport téléchargeable"],
+ pack2:["✔ Tout le Pack 1","✔ Aide au formulaire France-Visas","✔ Vérification des justificatifs","✔ Cohérence globale du dossier","✔ Lettre de motivation personnalisée","✔ Aide RDV TLScontact","✔ Alerte documents à traduire"],
+ pack3:["✔ Tout le Pack 2","✔ Suivi actif du dossier","✔ Alerte créneaux TLScontact","✔ Validation finale complète","✔ Checklist + briefing RDV","✔ Support WhatsApp 7j/7"]
+},
+ar:{
+ title:"حضّر طلب تأشيرة فرنسا 🇫🇷",
+ subtitle:"اختر الباقة المناسبة وزد من فرص قبولك",
+ formTitle:"أكمل طلبك",
+ validate:"تأكيد",
+ name:"الاسم الكامل",
+ email:"البريد الإلكتروني",
+ phone:"رقم الهاتف",
+ pack1Title:"اختبار ونصائح",
+ pack2Title:"المرافقة",
+ pack3Title:"متابعة مميزة",
+ pack1:["✔ استبيان شامل ذكي","✔ تقييم من 100 مع مستوى","✔ تحليل شخصي","✔ تحديد الوثائق الناقصة","✔ نصائح حسب ملفك","✔ تقرير قابل للتحميل"],
+ pack2:["✔ كل خدمات الباقة 1","✔ المساعدة في استمارة France Visas","✔ مراجعة الوثائق","✔ التحقق من انسجام الملف","✔ نموذج رسالة تحفيزية","✔ المساعدة في موعد TLScontact","✔ تنبيه الوثائق التي تحتاج ترجمة"],
+ pack3:["✔ كل خدمات الباقة 2","✔ متابعة مستمرة للملف","✔ تنبيه بفتح المواعيد","✔ مراجعة نهائية شاملة","✔ قائمة يوم الموعد + توجيه","✔ دعم واتساب 7/7"]
+}
+};
 
-function submitForm() {
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
+function setLanguage(lang){
+ currentLang=lang;
+ document.getElementById('title').innerText=translations[lang].title;
+ document.getElementById('subtitle').innerText=translations[lang].subtitle;
+ document.getElementById('formTitle').innerText=translations[lang].formTitle;
+ document.getElementById('validate').innerText=translations[lang].validate;
 
-  if (!name || !email) {
-    alert("Veuillez remplir les champs obligatoires");
-    return;
-  }
+ document.getElementById('name').placeholder=translations[lang].name;
+ document.getElementById('email').placeholder=translations[lang].email;
+ document.getElementById('phone').placeholder=translations[lang].phone;
 
-  const data = {
-    nom: name,
-    email: email,
-    telephone: phone,
-    pack: chosenPack
-  };
+ document.getElementById('pack1_title').innerText=translations[lang].pack1Title;
+ document.getElementById('pack2_title').innerText=translations[lang].pack2Title;
+ document.getElementById('pack3_title').innerText=translations[lang].pack3Title;
 
-  // 🔹 Ouvrir WhatsApp immédiatement
-  const whatsappMessage = `Bonjour, je souhaite le pack ${chosenPack}. Nom: ${name}, Email: ${email}, Téléphone: ${phone}`;
-  window.open(`https://api.whatsapp.com/send?phone=212661436739&text=${encodeURIComponent(whatsappMessage)}`);
+ document.getElementById('pack1_features').innerHTML=translations[lang].pack1.map(i=>"<li>"+i+"</li>").join('');
+ document.getElementById('pack2_features').innerHTML=translations[lang].pack2.map(i=>"<li>"+i+"</li>").join('');
+ document.getElementById('pack3_features').innerHTML=translations[lang].pack3.map(i=>"<li>"+i+"</li>").join('');
 
-  // 🔹 Envoyer les données au Google Sheet en arrière-plan
-  fetch("https://script.google.com/macros/s/AKfycbwBrJJO-1naUoFUH4_fLEi3Bga1ZvHoBhDjMMc7K0Wx-ZFRcy_6ajT7YlvHe8kphIY/exec", {
-    method: "POST",
-    body: JSON.stringify(data)
-  })
-  .then(res => res.json())
-  .then(response => {
-    console.log("Données envoyées au Google Sheet :", response);
-  })
-  .catch(error => {
-    console.error("Erreur lors de l'envoi au Google Sheet :", error);
-  });
+ // RTL pour arabe mais garder descriptions alignées à gauche
+ if(lang==='ar'){
+ document.body.style.direction='rtl';
+ document.body.style.textAlign='center';
+ }else{
+ document.body.style.direction='ltr';
+ document.body.style.textAlign='center';
+ }
+}
 
-  // Optionnel : tu peux aussi afficher une petite alerte de confirmation côté page
-  alert("Votre demande est enregistrée et WhatsApp s'ouvre !");
+setLanguage('fr');
+
+function selectPack(pack){
+ chosenPack=pack;
+ document.getElementById('packs').style.display='none';
+ document.getElementById('home').style.display='none';
+ document.getElementById('formPage').style.display='block';
+ document.getElementById('selectedPack').innerText="Pack : "+pack;
+}
+
+function submitForm(){
+ const name=document.getElementById('name').value;
+ const email=document.getElementById('email').value;
+ const phone=document.getElementById('phone').value;
+
+ let msg="";
+ if(currentLang==='ar'){
+ msg=`طلب خدمة تأشيرة فرنسا\n\nالباقة المختارة: ${chosenPack}\nالاسم: ${name}\nالبريد الإلكتروني: ${email}\nرقم الهاتف: ${phone}\n\nشكرا لمعالجة طلبي`;
+ }else{
+ msg=`Demande de service Visa France\n\nPack choisi: ${chosenPack}\nNom: ${name}\nEmail: ${email}\nTéléphone: ${phone}\n\nMerci de traiter ma demande`;
+ }
+
+ window.open(`https://api.whatsapp.com/send?phone=212661436739&text=${encodeURIComponent(msg)}`);
+
+ fetch("https://script.google.com/macros/s/AKfycbwBrJJO-1naUoFUH4_fLEi3Bga1ZvHoBhDjMMc7K0Wx-ZFRcy_6ajT7YlvHe8kphIY/exec",{
+ method:"POST",
+ body:JSON.stringify({nom:name,email:email,telephone:phone,pack:chosenPack})
+ });
 }
 </script>
 
-</
+</body>
+</html>
