@@ -112,20 +112,40 @@
     window.scrollTo(0, document.body.scrollHeight);
   }
 
-  function submitForm() {
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
+ function submitForm() {
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
 
-    if (!name || !email) {
-      alert("Veuillez remplir les champs obligatoires");
-      return;
-    }
-
-    const message = `Bonjour, je souhaite le pack ${chosenPack}. Nom: ${name}, Email: ${email}, Téléphone: ${phone}`;
-
-    window.open(`https://wa.me/212661436739?text=${encodeURIComponent(message)}`);
+  if (!name || !email) {
+    alert("Veuillez remplir les champs obligatoires");
+    return;
   }
+
+  const data = {
+    nom: name,
+    email: email,
+    telephone: phone,
+    pack: chosenPack
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbwBrJJO-1naUoFUH4_fLEi3Bga1ZvHoBhDjMMc7K0Wx-ZFRcy_6ajT7YlvHe8kphIY/exec", {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(res => res.json())
+  .then(response => {
+    alert("Demande envoyée avec succès !");
+    
+    const message = `Bonjour, je souhaite le pack ${chosenPack}. Nom: ${name}, Email: ${email}, Téléphone: ${phone}`;
+    
+    window.open(`https://api.whatsapp.com/send?phone=21266143639&text=${encodeURIComponent(message)}`);
+  })
+  .catch(error => {
+    alert("Erreur lors de l'envoi");
+    console.error(error);
+  });
+}
 </script>
 
 </
